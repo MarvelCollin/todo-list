@@ -1,18 +1,31 @@
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: lightblue;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
 }
 
-form {
-    padding: 20px;
-    border: 1px solid red;
+.content-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-color: lightblue;
+}
+
+.form-section {
+    padding: 20px;
+    transition: ease-in-out 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    background-color: blanchedalmond;
 }
 
 .header {
@@ -20,19 +33,72 @@ form {
     font-weight: 900;
 }
 
-input {
+.input-field {
     border-radius: 50px;
     height: 30px;
     width: 250px;
-    padding: 100px;
-    text-decoration: none;
+    /* border: 1px solid red; */
+    padding: 10px;
 }
 
-input::placeholder {
-    margin: 20px;
-    padding: 100px;
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
 }
 
-.form-items {
+.input-container label {
+    font-weight: bold;
+    padding: 5px;
+}
 
+.submit-button {
+    padding: 7px 15px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: darkgray;
+    transition: 1s;
+    color: white;
+    margin-top: 20px;
+    font-weight: bold;
+
+}
+
+.submit-button:hover {
+    background-color: green;
+    scale: 1.1;
+    transition: 1s;
+}
+
+.hidden {
+    display: none;
+}
+
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blanchedalmond;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.button-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    width: 100%;
+    padding:10px 0;
+    transition: 1s;
+}
+
+.button-header:hover {
+    font-size: larger;
+    color: green;
+}
+
+.unactive {
+    background-color: azure;
 }

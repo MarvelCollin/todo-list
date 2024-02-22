@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/auth', function () {
     return view('auth.authentication');
 });
+
+Route::post('/login', 'AuthController@login')->name('login');
+Route::post('/register', 'AuthController@register')->name('register');
