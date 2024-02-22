@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // public function authView(){
-    //     return view('auth.authentication');       
-    // }
+    public function authView(){
+        return view('auth.authentication');       
+    }
 
     public function login(Request $request){
         $username = $request->username;

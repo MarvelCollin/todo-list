@@ -17,10 +17,8 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-Route::get('/auth', function () {
-    return view('auth.authentication');
-});
 
+Route::get('/auth', [AuthController::class, 'authView'])->name('authviewer');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

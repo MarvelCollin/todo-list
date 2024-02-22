@@ -11,15 +11,19 @@
         </div>
         <div class="nav-items">
             @auth
-            <div class="profile center">
-                <a href="#"><img class="profile-logo" src="{{ asset('assets/profile/' . auth()->user()->profile_picture) }}" alt=""></a>
-                <a href="#">{{ auth()->user()->username }}</a>
-            </div>
-            @else
-            <a class="" href="">SIGN UP</a>
+                <div class="profile center">
+                    <a href="#"><img class="profile-logo"
+                            src="{{ asset('assets/profile/' . auth()->user()->profile_picture) }}" alt=""></a>
+                    <a href="#">{{ auth()->user()->username }}</a>
+                </div>
+                <form class="logout-form" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="logout-button center">Logout</button>
+                </form>
+                @else
+                <a class="" href="{{ route('authviewer') }}">SIGN UP</a>
             @endauth
         </div>
     </div>
     @yield('content')
 @endsection
-    

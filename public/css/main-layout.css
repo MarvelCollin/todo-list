@@ -139,3 +139,18 @@
     margin-top: 20px;
     font-size: 14px;
 }
+
+.logout-button {
+    background-color: red;
+    color: white;
+    width: 90px;
+    height: 35px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+.logout-form {
+    padding: 0;
+    margin: 0;
+}
