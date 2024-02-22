@@ -1,0 +1,38 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: lightblue;
+}
+
+form {
+    padding: 20px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+input {
+    border-radius: 50px;
+    height: 30px;
+    width: 250px;
+    padding: 100px;
+    text-decoration: none;
+}
+
+input::placeholder {
+    margin: 20px;
+    padding: 100px;
+}
+
+.form-items {
+
+}
