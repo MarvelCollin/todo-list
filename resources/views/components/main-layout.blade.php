@@ -12,8 +12,8 @@
         <div class="nav-items">
             @auth
             <div class="profile center">
-                <a href="#"><img class="profile-logo" src="{{ asset('assets/none-profile.png') }}" alt=""></a>
-                <a href="#">Marvel Collin</a>
+                <a href="#"><img class="profile-logo" src="{{ asset('assets/profile/' . auth()->user()->profile_picture) }}" alt=""></a>
+                <a href="#">{{ auth()->user()->username }}</a>
             </div>
             @else
             <a class="" href="">SIGN UP</a>
@@ -22,3 +22,4 @@
     </div>
     @yield('content')
 @endsection
+    

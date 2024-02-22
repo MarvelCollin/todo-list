@@ -11,7 +11,8 @@
             <button id="register-button" class="button-header unactive" onclick="goRegister()">REGISTER</button>
         </div>
         <div id="login-section" class="form-section">
-            <form action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf 
                 <div class="input-container">
                     <label for="username">Username</label>
                     <input class="input-field" id="username" type="text" name="username">
@@ -26,7 +27,8 @@
             </form>
         </div>
         <div id="register-section" class="form-section hidden">
-            <form action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf 
                 <div class="input-container">
                     <label for="username">Username</label>
                     <input class="input-field" id="username" type="text" name="username">
@@ -37,7 +39,7 @@
                 </div>
                 <div class="input-container">
                     <label for="password">Password Confirmation</label>
-                    <input class="input-field" id="password" type="password" name="password">
+                    <input class="input-field" id="password" type="password">
                 </div>
                 <div class="input-container">
                     <button class="submit-button" type="submit">REGISTER</button>
