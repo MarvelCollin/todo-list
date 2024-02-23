@@ -27,3 +27,4 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/add', [TodoController::class, 'viewAdd'])->name('viewAdd');
 Route::post('/add-process', [TodoController::class, 'add'])->name('add');
 Route::get('/', [TodoController::class, 'viewTasks'])->name('viewTasks');
+Route::delete('/delete/{id}', [TodoController::class, 'delete'])->name('delete-task');

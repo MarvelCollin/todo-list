@@ -64,10 +64,32 @@ th, td {
     font-size: 15px;
 }
 
+.action-icon {
+    display: flex;
+    justify-content: center;     
+    align-items: center;
+    gap: 10px;
+}
+
+.data-items th img {
+    width: 30px;
+    height: 30px;
+}
+
 .incomplete {
     color: red;
 }
 
 .complete {
     color: green;
+}
+
+.action-section {
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+.form-delete {
+    padding: 0;
+    margin: 0;
 }

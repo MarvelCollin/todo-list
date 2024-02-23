@@ -7,23 +7,26 @@
     <div class="data-container">
         <div class="task-container">
             <div class="header">
+                <p></p>
                 <p>TASKS</p>
                 <a class="action" href="{{ route('viewAdd') }}">+</a>
             </div>
             <table>
                 <thead>
                     <tr class="task-top-title">
-                        <th>ID</th>
+                        <th>No</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th>Deadline</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php $no = 1 @endphp
                     @foreach ($tasks as $task)
                         <tr class="data-items">
-                            <th>{{ $task->id }}</th>
+                            <th>{{ $no++ }}</th>
                             <th>{{ $task->title }}</th>
                             <th>{{ $task->description }}</th>
                             <th>
@@ -34,6 +37,21 @@
                                 @endif
                             </th>
                             <th>{{ $task->deadline }}</th>
+                            <th class="action-section">
+                                <div class="action-icon">
+                                    <a href="">
+                                        <img src="{{ asset('assets/edit.png') }}" alt="">
+                                    </a>
+                                    <form method="POST" action="{{ route('delete-task', ['id' => $task->id]) }}"
+                                        class="form-delete">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">
+                                            <img src="{{ asset('assets/trash.png') }}" alt="">
+                                        </button>
+                                    </form>
+                                </div>
+                            </th>
                         </tr>
                     @endforeach
                 </tbody>
