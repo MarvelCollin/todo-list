@@ -85,8 +85,7 @@ th, td {
 }
 
 .action-section {
-    /* display: flex; */
-    /* justify-content: center; */
+    text-align: left;
 }
 
 .form-delete {
