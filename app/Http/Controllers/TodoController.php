@@ -34,6 +34,34 @@ class TodoController extends Controller
         return redirect('/');
     }
 
+    public function viewUpdate($id){
+        $tasks = Task::findOrFail($id);
+
+        return view('pages.edit-todo', compact('tasks'));
+    }
+
+    public function update(Request $request, $id){
+        $title = $request->title;
+        $description = $request->description;
+        $deadline = $request->deadline;
+        
+        if($request->has('checkbox')){
+            $status = 1;
+        } else {
+            $status = 0;
+        }
+        
+
+        Task::findOrFail($id)->update([
+            'title' => $title,
+            'description' => $description,
+            'deadline' => $deadline,
+            'status' => $status,
+        ]);
+
+        return redirect('/');
+    }
+
     public function delete($id){
         $element = Task::findOrFail($id);
 

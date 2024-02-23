@@ -17,6 +17,10 @@
     font-weight: 900;
 }
 
+.header p {
+    text-align: center;
+}
+
 .form {
     background-color: antiquewhite;
     padding: 20px;
@@ -62,4 +66,11 @@
 .submit-button button:hover {
     transition: 1s;
     scale: 1.1;
+}
+
+.centering {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

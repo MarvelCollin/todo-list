@@ -39,7 +39,7 @@
                             <th>{{ $task->deadline }}</th>
                             <th class="action-section">
                                 <div class="action-icon">
-                                    <a href="">
+                                    <a href="{{ route('viewUpdate', ['id' => $task->id]) }}">
                                         <img src="{{ asset('assets/edit.png') }}" alt="">
                                     </a>
                                     <form method="POST" action="{{ route('delete-task', ['id' => $task->id]) }}"

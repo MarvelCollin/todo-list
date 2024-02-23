@@ -24,7 +24,16 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// create tasks
 Route::get('/add', [TodoController::class, 'viewAdd'])->name('viewAdd');
 Route::post('/add-process', [TodoController::class, 'add'])->name('add');
+
+// home
 Route::get('/', [TodoController::class, 'viewTasks'])->name('viewTasks');
+
+// delete
 Route::delete('/delete/{id}', [TodoController::class, 'delete'])->name('delete-task');
+
+// update 
+Route::get('/update/{id}', [TodoController::class, 'viewUpdate'])->name('viewUpdate');
+Route::post('/update-process/{id}', [TodoController::class, 'update'])->name('update');
