@@ -27,8 +27,8 @@
                     @foreach ($tasks as $task)
                         <tr class="data-items">
                             <th>{{ $no++ }}</th>
-                            <th>{{ $task->title }}</th>
-                            <th>{{ $task->description }}</th>
+                            <th class="checker" data-status="{{ $task->status }}">{{ $task->title }}</th>
+                            <th class="checker" data-status="{{ $task->status }}">{{ $task->description }}</th>
                             <th>
                                 @if ($task->status == 0)
                                     <p class="incomplete">Incomplete</p>
@@ -36,7 +36,7 @@
                                     <p class="complete">Complete</p>
                                 @endif
                             </th>
-                            <th>{{ $task->deadline }}</th>
+                            <th class="checker" data-status="{{ $task->status }}">{{ $task->deadline }}</th>
                             <th class="action-section">
                                 <div class="action-icon">
                                     <a href="{{ route('viewUpdate', ['id' => $task->id]) }}">
@@ -58,4 +58,17 @@
             </table>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const checkers = document.getElementsByClassName('checker');
+
+            for (let i = 0; i < checkers.length; i++) {
+                const checker = checkers[i];
+                const status = checker.getAttribute('data-status');
+                if (status == 1) {
+                    checker.classList.add('cross');
+                }
+            }
+        });
+    </script>
 @endsection

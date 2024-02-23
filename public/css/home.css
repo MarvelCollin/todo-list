@@ -93,3 +93,8 @@ th, td {
     padding: 0;
     margin: 0;
 }
+
+.cross {
+    text-decoration: line-through;
+    color: darkgray;
+}
