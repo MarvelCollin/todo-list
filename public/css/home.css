@@ -13,11 +13,29 @@
     border-radius: 10px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
 .header p {
     font-size: 40px;
     font-weight: 900;
     color: white;
     text-align: center;
+}
+
+.header a {
+    font-size: 40px;
+    font-weight: 900;
+    color: greenyellow;
+    text-align: center;
+}
+
+.action {
+    justify-content: right;
 }
 
 .task-top-title {
@@ -44,4 +62,12 @@ th, td {
     color: white;
     font-weight: normal !important;
     font-size: 15px;
+}
+
+.incomplete {
+    color: red;
+}
+
+.complete {
+    color: green;
 }
