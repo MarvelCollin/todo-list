@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
+    public function viewTasks(){
+        // ambil semua table di taks
+        $tasks = Task::all();
+
+        return view('pages.home', compact('tasks'));
+    }
+
     public function viewAdd(){
         return view('pages.add-todo');
     }

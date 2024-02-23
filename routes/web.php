@@ -15,9 +15,9 @@ use App\Http\Controllers\TodoController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+// Route::get('/', function () {
+//     return view('pages.home');
+// });
 
 Route::get('/auth', [AuthController::class, 'authView'])->name('authviewer');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -26,3 +26,4 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/add', [TodoController::class, 'viewAdd'])->name('viewAdd');
 Route::post('/add-process', [TodoController::class, 'add'])->name('add');
+Route::get('/', [TodoController::class, 'viewTasks'])->name('viewTasks');

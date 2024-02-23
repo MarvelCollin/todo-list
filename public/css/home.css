@@ -1,0 +1,47 @@
+.data-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-container {
+    width: 80%;
+    background-color: grey;
+    padding: 20 30px;
+    border-radius: 10px;
+}
+
+.header p {
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+}
+
+.task-top-title {
+    font-weight: 900;
+    font-size: 20px;
+    color: wheat;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    max-width: 350px;
+    word-wrap: break-word;
+}
+
+.data-items {
+    color: white;
+    font-weight: normal !important;
+    font-size: 15px;
+}
