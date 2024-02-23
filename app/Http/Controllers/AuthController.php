@@ -14,9 +14,11 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
+        // declare ke var ambil dari name di blade
         $username = $request->username;
         $password = $request->password;
 
+        // function built in nya laravel utk cek (udah auto utk hash)
         if(Auth::attempt(['username' => $username, 'password' => $password])){
             return redirect('/');
         }

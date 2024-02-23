@@ -1,5 +1,9 @@
+.container-field {
+    height: auto;
+}
+
 .nav {
-    position: fixed;
+    position: relative;
     width: 100%;
     height: 6%;
     background-color: dimgray;

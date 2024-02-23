@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TodoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +19,10 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-
 Route::get('/auth', [AuthController::class, 'authView'])->name('authviewer');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/add', [TodoController::class, 'viewAdd'])->name('viewAdd');
+Route::post('/add-process', [TodoController::class, 'add'])->name('add');
