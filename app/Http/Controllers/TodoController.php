@@ -14,15 +14,17 @@ class TodoController extends Controller
         // ambil semua table di taks
         // $tasks = Task::all();
 
+        // dapatin apakah user apakah ada yg login atau tidak
         $user = Auth::user();
+        // check 
         if($user){
+            // buat variable untuk panggil 
+            // si user yang login -> tasks (yaitu display si tasks)
             $tasks = $user->tasks;
             return view('pages.home', compact('tasks'));
         }
 
         return view('pages.home');
-
-
     }
 
     public function viewAdd(){
@@ -46,6 +48,8 @@ class TodoController extends Controller
             'status' => FALSE,
         ]); 
 
+        // create berdasarkan relation
+        // tasks() merupakan function yang ada di User.php
         $user->tasks()->save($task);
 
         // Task::create([

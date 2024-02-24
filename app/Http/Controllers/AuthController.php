@@ -13,6 +13,12 @@ class AuthController extends Controller
         return view('auth.authentication');       
     }
 
+    public function profileView(){
+        $user = Auth::user();
+
+        return view('pages.profile', compact('user'));
+    }
+
     public function login(Request $request){
         // declare ke var ambil dari name di blade
         $username = $request->username;
@@ -46,10 +52,19 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-
     public function logout(){
 
         Auth::logout();
         return redirect('/');
     }
+
+    public function profileUpdate(Request $request, $id){
+
+        User::findOrFail($id)->update([
+            'username' => $request->username
+        ]);
+
+        return redirect('/');
+    }
+
 }

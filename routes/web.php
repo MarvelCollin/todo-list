@@ -37,3 +37,7 @@ Route::delete('/delete/{id}', [TodoController::class, 'delete'])->name('delete-t
 // update 
 Route::get('/update/{id}', [TodoController::class, 'viewUpdate'])->name('viewUpdate');
 Route::post('/update-process/{id}', [TodoController::class, 'update'])->name('update');
+
+// profile
+Route::get('/profile/{id}', [AuthController::class, 'profileView'])->name('profileView');
+Route::post('/profile-update/{id}', [AuthController::class, 'profileUpdate'])->name('profileUpdate');

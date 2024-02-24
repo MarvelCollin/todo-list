@@ -13,9 +13,12 @@
             <div class="nav-items">
                 @auth
                     <div class="profile center">
-                        <a href="#"><img class="profile-logo"
-                                src="{{ asset('assets/profile/' . auth()->user()->profile_picture) }}" alt=""></a>
-                        <a href="#">{{ auth()->user()->username }}</a>
+                        <a href="{{ route('profileView', ['id' => auth()->user()->id]) }}">
+                            <img class="profile-logo"
+                                src="{{ asset('assets/profile/' . auth()->user()->profile_picture) }}" alt="
+                                
+                                "></a>
+                        <a href="{{ route('profileView', ['id' => auth()->user()->id]) }}">{{ auth()->user()->username }}</a>
                     </div>
                     <form class="logout-form" method="POST" action="{{ route('logout') }}">
                         @csrf
