@@ -1,7 +1,8 @@
 # About
 
-- Authentication
-- CRUD
+### Progress
+- Day 1 -> Authentication
+- Day 2 -> CRUD
   
 ![GitHub Logo](docs/task-home.jpeg)
 ![GitHub Logo](docs/login.jpeg)
