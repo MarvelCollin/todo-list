@@ -24,7 +24,7 @@
             </div>
             <div class="input-field centering">
                 <label for="checkbox">Complete ?</label>
-                <input id="checkbox" type="checkbox" name="checkbox"  {{ $tasks->status == 1 ? 'checked' : '' }}>
+                <input id="checkbox" type="checkbox" name="status"  {{ $tasks->status == 1 ? 'checked' : '' }}>
             </div>
 
             <div class="submit-button">

@@ -56,21 +56,6 @@
     align-items: center;
 }
 
-@media only screen and (max-width: 768px) {
-    .nav {
-        height: 8%; /* Adjusted height for smaller screens */
-        padding: 0 10px; /* Adjusted padding for smaller screens */
-    }
-
-    .nav-items {
-        display: none; /* Hide nav items on small screens */
-    }
-
-    .profile {
-        display: none; /* Hide profile on small screens */
-    }
-}
-
 .footer {
     background-color: #333;
     color: #fff;
@@ -87,7 +72,7 @@
 }
 
 .footer-section {
-    padding: 20px;
+    padding: 20px;  
 }
 
 .footer-section h2 {
@@ -95,7 +80,7 @@
 }
 
 .footer-section p {
-    font-size: 14px;
+    font-size: 14px;    
 }
 
 .footer-section ul {

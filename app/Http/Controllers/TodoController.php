@@ -3,15 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
+
     public function viewTasks(){
         // ambil semua table di taks
-        $tasks = Task::all();
+        // $tasks = Task::all();
 
-        return view('pages.home', compact('tasks'));
+        $user = Auth::user();
+        if($user){
+            $tasks = $user->tasks;
+            return view('pages.home', compact('tasks'));
+        }
+
+        return view('pages.home');
+
+
     }
 
     public function viewAdd(){
@@ -24,12 +35,25 @@ class TodoController extends Controller
         $description = $request->description ?? 'none';
         $deadline = $request->deadline;
 
-        Task::create([
+        // untuk mendapatkan user id mana yang lagi login
+        // user() merupakan function yang ada di model Task 
+        $user = Auth::user();
+
+        $task = new Task([
             'title' => $title,
             'description' => $description,
             'deadline' => $deadline,
             'status' => FALSE,
-        ]);
+        ]); 
+
+        $user->tasks()->save($task);
+
+        // Task::create([
+        //     'title' => $title,
+        //     'description' => $description,
+        //     'deadline' => $deadline,
+        //     'status' => FALSE,
+        // ]);
 
         return redirect('/');
     }
@@ -45,7 +69,7 @@ class TodoController extends Controller
         $description = $request->description;
         $deadline = $request->deadline;
         
-        if($request->has('checkbox')){
+        if($request->has('status')){
             $status = 1;
         } else {
             $status = 0;

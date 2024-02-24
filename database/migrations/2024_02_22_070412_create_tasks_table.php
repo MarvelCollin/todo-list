@@ -19,6 +19,12 @@ return new class extends Migration
             $table->string('description')->nullable;
             $table->date('deadline')->nullable;
             $table->boolean('status');
+            // kunci untuk user_idnya
+            $table->unsignedBigInteger('user_id');
+            // foreign key yang disambungkan ke 'id' yang berada di table 'users'
+            // onDelete('cascade') -> kalau users nya dihapus maka table untuk tasks 
+            // kepunyaan si users juga akan dihapus
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

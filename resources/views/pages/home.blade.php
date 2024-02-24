@@ -5,6 +5,7 @@
 
 @section('content')
     <div class="data-container">
+        @auth
         <div class="task-container">
             <div class="header">
                 <p></p>
@@ -57,6 +58,7 @@
                 </tbody>
             </table>
         </div>
+        @endauth
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
