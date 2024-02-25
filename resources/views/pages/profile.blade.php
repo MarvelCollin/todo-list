@@ -5,11 +5,14 @@
 @section('content')
     <div class="profile-outer">
         <div class="profile-container">
-            <form method="POST" class="form" action="{{ route('profileUpdate', ['id'=>$user->id]) }}">
+            <form method="POST" class="form" action="{{ route('profileUpdate', ['id' => $user->id]) }}"
+                enctype="multipart/form-data">
+                {{-- enctype="multipart/form-data" -> digunakan kalau mau upload image menggunakan form --}}
                 @csrf
                 <p>Update Profile</p>
-                <div class="profile-items">
-                    <img src="{{ asset('assets/profile/' . $user->profile_picture) }}" alt="">
+                <div class="profile-items images">
+                    <img src="{{ asset('storage/images/' . auth()->user()->profile_picture) }}" alt="asd">
+                    <input  class="file" name="profile_picture" type="file" value="{{ $user->profile_picture }}">
                 </div>
                 <div class="profile-items">
                     <label for="username">Username</label>

@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
 class AuthController extends Controller
 {
     public function authView(){
@@ -59,9 +59,27 @@ class AuthController extends Controller
     }
 
     public function profileUpdate(Request $request, $id){
+        
+        $isProfile = $request->profile_picture;
+        
+        if($isProfile){
+            // php artisan storage:link
+            
+            $imageName = Str::random(20) . '.' . $request->file('profile_picture')->getClientOriginalExtension();
+            
+            // ada di filesystem.php itu bisa pilih local atau public
+            // tapi supaya bisa diakses pake public aja 
+            //              si name di blade             path       file name  path access
+            $request->file('profile_picture')->storeAs('public/images/', $imageName);
+        } else {
+            $imageName = User::findOrFail($id)->profile_picture;
+        }
+
 
         User::findOrFail($id)->update([
-            'username' => $request->username
+            'username' => $request->username,
+            'profile_picture' => $imageName
+
         ]);
 
         return redirect('/');

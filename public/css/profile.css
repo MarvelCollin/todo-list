@@ -35,6 +35,8 @@
 .profile-items {
     display: flex;
     flex-direction: column;
+    height: auto;
+    display: flex;
 }
 
 .profile-items input {
@@ -45,12 +47,21 @@
     margin: 10px 0;
 }
 
+.images {
+    align-items: center;
+}
 
 .profile-items label {
     font-size: 20px;
     font-weight: 800;
     text-indent: 3px;
     padding: 5px;
+}
+
+.file {
+    padding: 0;
+    margin: 0;
+    height: auto !important;
 }
 
 .submit-button {

@@ -15,7 +15,7 @@
                     <div class="profile center">
                         <a href="{{ route('profileView', ['id' => auth()->user()->id]) }}">
                             <img class="profile-logo"
-                                src="{{ asset('assets/profile/' . auth()->user()->profile_picture) }}" alt="
+                                src="{{ asset('storage/images/' . auth()->user()->profile_picture) }}" alt="
                                 
                                 "></a>
                         <a href="{{ route('profileView', ['id' => auth()->user()->id]) }}">{{ auth()->user()->username }}</a>
