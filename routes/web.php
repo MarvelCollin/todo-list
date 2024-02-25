@@ -24,20 +24,23 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// create tasks
-Route::get('/add', [TodoController::class, 'viewAdd'])->name('viewAdd');
-Route::post('/add-process', [TodoController::class, 'add'])->name('add');
+Route::middleware(['auth'])->group(function () {
+    // create tasks
+    Route::get('/add', [TodoController::class, 'viewAdd'])->name('viewAdd')->middleware('auth');
+    Route::post('/add-process', [TodoController::class, 'add'])->name('add');
+    // delete
+    Route::delete('/delete/{id}', [TodoController::class, 'delete'])->name('delete-task');
+    
+    // update 
+    Route::get('/update/{id}', [TodoController::class, 'viewUpdate'])->name('viewUpdate');
+    Route::post('/update-process/{id}', [TodoController::class, 'update'])->name('update');
+    
+    // profile
+    Route::get('/profile/{id}', [AuthController::class, 'profileView'])->name('profileView');
+    Route::post('/profile-update/{id}', [AuthController::class, 'profileUpdate'])->name('profileUpdate');
+
+
+});
 
 // home
 Route::get('/', [TodoController::class, 'viewTasks'])->name('viewTasks');
-
-// delete
-Route::delete('/delete/{id}', [TodoController::class, 'delete'])->name('delete-task');
-
-// update 
-Route::get('/update/{id}', [TodoController::class, 'viewUpdate'])->name('viewUpdate');
-Route::post('/update-process/{id}', [TodoController::class, 'update'])->name('update');
-
-// profile
-Route::get('/profile/{id}', [AuthController::class, 'profileView'])->name('profileView');
-Route::post('/profile-update/{id}', [AuthController::class, 'profileUpdate'])->name('profileUpdate');

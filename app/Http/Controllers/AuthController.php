@@ -25,7 +25,10 @@ class AuthController extends Controller
         $password = $request->password;
 
         // function built in nya laravel utk cek (udah auto utk hash)
-        if(Auth::attempt(['username' => $username, 'password' => $password])){
+        $user = Auth::attempt(['username' => $username, 'password' => $password]);
+
+        if($user){
+            // Auth::login($user);
             return redirect('/');
         }
 
@@ -44,7 +47,7 @@ class AuthController extends Controller
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'bio' => 'this person rather lazy to edit bio',
-            'profile_picture' => 'none-profile.png'
+            'profile_picture' => 'none-profile.jpeg'
         ]);
 
         Auth::login($user);
