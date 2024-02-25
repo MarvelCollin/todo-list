@@ -19,8 +19,16 @@
                     <input id="username" name="username" type="text" value="{{ $user->username }}">
                 </div>
                 <div class="profile-items">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Your Password">
+                    <label for="oldpassword">Old Password</label>
+                    <input id="password" name="password" type="password" placeholder="Old Password">
+                </div>
+                <div class="profile-items">
+                    <label for="newpassword">New Password</label>
+                    <input id="newpassword" name="newpassword" type="password" placeholder="New Password">
+                </div>
+                <div class="profile-items">
+                    <label for="confirmpassword">Confirm Password</label>
+                    <input id="confirmpassword" name="confirmpassword" type="password" placeholder="Confirm Password">
                 </div>
                 <div class="submit-button">
                     <button type="submit">Submit</button>

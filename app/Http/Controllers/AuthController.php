@@ -47,7 +47,7 @@ class AuthController extends Controller
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'bio' => 'this person rather lazy to edit bio',
-            'profile_picture' => 'none-profile.jpeg'
+        'profile_picture' => 'none-profile.jpeg'
         ]);
 
         Auth::login($user);
@@ -65,6 +65,15 @@ class AuthController extends Controller
         
         $isProfile = $request->profile_picture;
         
+        if(Hash::check($request->password, Auth::user()->password) 
+        && $request->newpassword && $request->confirmpassword
+        && $request->newpassword === $request->confirmpassword ){
+            $newpassword = Hash::make($request->confirmpassword);
+        } else {
+            return redirect()->back();
+            // $newpassword = Auth::user()->password;
+        }
+        
         if($isProfile){
             // php artisan storage:link
             
@@ -78,11 +87,10 @@ class AuthController extends Controller
             $imageName = User::findOrFail($id)->profile_picture;
         }
 
-
         User::findOrFail($id)->update([
             'username' => $request->username,
-            'profile_picture' => $imageName
-
+            'profile_picture' => $imageName,
+            'password' => $newpassword
         ]);
 
         return redirect('/');
