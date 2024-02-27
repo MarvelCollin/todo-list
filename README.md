@@ -3,7 +3,7 @@
 ### Progress
 - Day 1 -> Authentication
 - Day 2 -> CRUD
-- Day 3 -> Middleware, Password, Profile
+- Day 3 -> Middleware, Password, Profile, Eloquent
   
 ![GitHub Logo](docs/task-home.jpeg)
 ![GitHub Logo](docs/login.jpeg)
