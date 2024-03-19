@@ -1,9 +1,5 @@
 # About
-
-### Progress
-- Day 1 -> Authentication
-- Day 2 -> CRUD
-- Day 3 -> Middleware, Password, Profile, Eloquent
+A simple project of laravel
   
 ![GitHub Logo](docs/task-home.jpeg)
 ![GitHub Logo](docs/login.jpeg)
